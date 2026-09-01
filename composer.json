@@ -1,9 +1,21 @@
 {
-    "name": "laravel/laravel",
+    "name": "ibamzjr/pbl-maestro-pt2",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "A Project Based Learning fashion catalog and operations application.",
+    "keywords": ["project-based-learning", "laravel", "fashion", "catalog", "portfolio"],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "anantariskys",
+            "homepage": "https://github.com/anantariskys",
+            "role": "Original author"
+        },
+        {
+            "name": "ibamzjr",
+            "homepage": "https://github.com/ibamzjr",
+            "role": "Maintainer"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.9",
