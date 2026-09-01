@@ -15,6 +15,7 @@
   <img src="https://img.shields.io/badge/Laravel-11-FF2D20?style=flat-square&logo=laravel&logoColor=white" alt="Laravel 11" />
   <img src="https://img.shields.io/badge/PHP-8.2+-4F5B93?style=flat-square&logo=php&logoColor=white" alt="PHP 8.2 or newer" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS 3" />
+  <a href="https://github.com/ibamzjr/PBL-Maestro-PT2/actions/workflows/quality.yml"><img src="https://github.com/ibamzjr/PBL-Maestro-PT2/actions/workflows/quality.yml/badge.svg" alt="Quality workflow" /></a>
   <img src="https://img.shields.io/badge/license-MIT-2EA44F?style=flat-square" alt="MIT license" />
 </p>
 
