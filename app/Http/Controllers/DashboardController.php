@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class DashoardController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DashoardController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -11,12 +11,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [DashoardController::class, 'index'])->name('home');
+    Route::get('/', [DashboardController::class, 'index'])->name('home');
     
     // Rute untuk user
     Route::middleware('user')->group(function () {
-        Route::get('/category', [DashoardController::class, 'allCategory'])->name('category');
-        Route::get('/product/{id}', [DashoardController::class, 'show'])->name('product.show');
+        Route::get('/category', [DashboardController::class, 'allCategory'])->name('category');
+        Route::get('/product/{id}', [DashboardController::class, 'show'])->name('product.show');
     });
 
     // Rute untuk semua pengguna terautentikasi
