@@ -10,7 +10,9 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('categories.index');
+        $categories = Category::orderBy('name')->get();
+
+        return view('categories.index', compact('categories'));
     }
 
     public function create()
