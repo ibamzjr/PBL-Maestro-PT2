@@ -64,6 +64,12 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        if ($category->products()->exists()) {
+            return redirect()
+                ->route('categories.index')
+                ->with('error', 'Kategori masih digunakan oleh produk dan belum dapat dihapus.');
+        }
+
         // Hapus gambar dari storage
         if ($category->image && Storage::disk('public')->exists($category->image)) {
             Storage::disk('public')->delete($category->image);
