@@ -8,6 +8,22 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
+    <form method="GET" action="{{ route('products.index') }}" class="form-inline mb-3">
+        <label for="product-search" class="sr-only">Cari produk</label>
+        <input
+            id="product-search"
+            type="search"
+            name="search"
+            value="{{ request('search') }}"
+            class="form-control mr-2"
+            placeholder="Cari produk atau kategori"
+        >
+        <button type="submit" class="btn btn-outline-dark mr-2">Cari</button>
+        @if(request()->filled('search'))
+            <a href="{{ route('products.index') }}" class="btn btn-link">Reset</a>
+        @endif
+    </form>
+
     <table class="table">
         <thead>
             <tr>
@@ -43,4 +59,6 @@
             @endforelse
         </tbody>
     </table>
+
+    {{ $products->links() }}
 @endsection
