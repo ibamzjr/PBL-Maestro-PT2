@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($categories as $category)
+            @forelse($categories as $category)
                 <tr>
                     <td>{{ $category->name }}</td>
                     <td><img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" width="100"></td>
@@ -30,7 +30,13 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="3" class="text-center text-muted py-4">
+                        Belum ada kategori di katalog.
+                    </td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
 @endsection

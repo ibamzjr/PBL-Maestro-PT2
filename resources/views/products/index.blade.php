@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($products as $product)
+            @forelse($products as $product)
                 <tr>
                     <td>{{ $product->name }}</td>
                     <td>Rp {{ number_format($product->price, 0, ',', '.') }}</td>
@@ -34,7 +34,13 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="5" class="text-center text-muted py-4">
+                        Belum ada produk di katalog.
+                    </td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
 @endsection
