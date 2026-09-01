@@ -130,6 +130,9 @@ flowchart TB
 | `routes` | Web, authentication, and console entry points |
 | `tests` | Authentication, profile, feature, and unit coverage |
 
+Read the [catalog domain notes](docs/catalog-domain.md) for entity boundaries,
+relationships, media lifecycle, and the deliberate limits of the PT2 scope.
+
 ## Getting Started
 
 Requirements: PHP 8.2 or newer, Composer, Node.js 20 or newer, and npm.
