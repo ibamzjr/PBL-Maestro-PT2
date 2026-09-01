@@ -47,6 +47,23 @@ The public edition preserves the original application and commit provenance
 while removing a hard-coded demonstration account. Privileged accounts must be
 created locally so a published repository never doubles as a credential source.
 
+## Selected Experiences
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="assets/showcase/maestro-catalog-overview.webp" alt="Maestro fashion catalog overview displayed on a laptop" />
+    </td>
+    <td width="50%">
+      <img src="assets/showcase/maestro-product-detail.webp" alt="Maestro product detail experience displayed on a laptop" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Editorial catalog discovery</strong></td>
+    <td align="center"><strong>Focused product evaluation</strong></td>
+  </tr>
+</table>
+
 ## Product At A Glance
 
 | Area | Experience |
