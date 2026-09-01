@@ -14,13 +14,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('category')->get();
+        $products = Product::with('category')->latest()->get();
         return view('products.index', compact('products'));
     }
 
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('name')->get();
         return view('products.create', compact('categories'));
     }
 
@@ -46,7 +46,7 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('name')->get();
         return view('products.edit', compact('product', 'categories'));
     }
 
