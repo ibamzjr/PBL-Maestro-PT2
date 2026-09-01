@@ -61,13 +61,13 @@ class ProductController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            // Hapus gambar lama jika ada
+            $newImage = Storage::disk('public')->putFile('products', $request->file('image'));
+
             if ($product->image && Storage::disk('public')->exists($product->image)) {
                 Storage::disk('public')->delete($product->image);
             }
-            
-            // Simpan gambar baru di storage/app/public/products
-            $validatedData['image'] = Storage::disk('public')->putFile('products', $request->file('image'));
+
+            $validatedData['image'] = $newImage;
         }
 
         $product->update($validatedData);

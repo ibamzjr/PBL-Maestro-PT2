@@ -48,13 +48,13 @@ class CategoryController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            // Hapus gambar lama jika ada
-            if ($category->image) {
+            $newImage = $request->file('image')->store('categories', 'public');
+
+            if ($category->image && Storage::disk('public')->exists($category->image)) {
                 Storage::disk('public')->delete($category->image);
             }
-            
-            // Simpan gambar baru di storage/app/public/categories
-            $validatedData['image'] = $request->file('image')->store('categories', 'public');
+
+            $validatedData['image'] = $newImage;
         }
 
         $category->update($validatedData);
@@ -65,7 +65,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         // Hapus gambar dari storage
-        if ($category->image) {
+        if ($category->image && Storage::disk('public')->exists($category->image)) {
             Storage::disk('public')->delete($category->image);
         }
 
