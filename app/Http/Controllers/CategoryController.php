@@ -23,8 +23,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
-            'image' => 'required|image',
+            'name' => ['required', 'string', 'max:100', 'unique:categories,name'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,webp,avif', 'max:4096'],
         ]);
 
         // Simpan gambar di storage/app/public/categories
@@ -43,8 +43,8 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
-            'image' => 'nullable|image',
+            'name' => ['required', 'string', 'max:100', 'unique:categories,name,'.$category->id],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,webp,avif', 'max:4096'],
         ]);
 
         if ($request->hasFile('image')) {
