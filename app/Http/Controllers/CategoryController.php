@@ -8,9 +8,18 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::orderBy('name')->get();
+        $search = trim((string) $request->query('search', ''));
+
+        $categories = Category::query()
+            ->withCount('products')
+            ->when($search, function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%");
+            })
+            ->orderBy('name')
+            ->paginate(12)
+            ->withQueryString();
 
         return view('categories.index', compact('categories'));
     }
