@@ -27,11 +27,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-            'description' => 'required',
-            'image' => 'required|image',
-            'category_id' => 'required|exists:categories,id',
+            'name' => ['required', 'string', 'max:120'],
+            'price' => ['required', 'numeric', 'min:0', 'max:9999999999.99'],
+            'description' => ['required', 'string', 'max:5000'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,webp,avif', 'max:4096'],
+            'category_id' => ['required', 'integer', 'exists:categories,id'],
         ]);
 
         // Simpan gambar di storage/app/public/products
@@ -53,11 +53,11 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-            'description' => 'required',
-            'image' => 'nullable|image',
-            'category_id' => 'required|exists:categories,id',
+            'name' => ['required', 'string', 'max:120'],
+            'price' => ['required', 'numeric', 'min:0', 'max:9999999999.99'],
+            'description' => ['required', 'string', 'max:5000'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,webp,avif', 'max:4096'],
+            'category_id' => ['required', 'integer', 'exists:categories,id'],
         ]);
 
         if ($request->hasFile('image')) {
