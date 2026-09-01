@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,13 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::create([
-            'name' => 'IBAM',
-            'email' => 'gamersindo555@gmail.com',
-            'password' => '12345678',
-            'role'=>'admin'
-        ]);
+        // Intentionally empty: privileged accounts must be created locally.
     }
 }
